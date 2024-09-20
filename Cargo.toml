@@ -1,0 +1,11 @@
+[package]
+name = "greencurves"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+kurbo = "*"
+itertools = "0.13"
+
+[dev-dependencies]
+approx = "0.3"
