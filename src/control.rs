@@ -23,9 +23,6 @@ impl CurveStatistics for ControlStatistics {
     }
     /// Find the center of mass of the path
     fn center_of_mass(&self) -> Point {
-        assert_eq!(self.points.len(), 37);
-        assert_eq!(self.total.x, 10002.0);
-        assert_eq!(self.total.y, 9380.5);
         Point::new(
             self.total.x / self.points.len() as f64,
             self.total.y / self.points.len() as f64,
