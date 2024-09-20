@@ -2,9 +2,13 @@
 name = "greencurves"
 version = "0.1.0"
 edition = "2021"
+description = "Generate statistics on Bezier paths"
+license = "MIT OR Apache-2.0"
+authors = ["Simon Cozens <simon@simon-cozens.org"]
+repository = "https://github.com/simoncozens/greencurves"
 
 [dependencies]
-kurbo = "*"
+kurbo = "0.11"
 itertools = "0.13"
 
 [dev-dependencies]
