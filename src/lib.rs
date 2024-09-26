@@ -28,8 +28,8 @@
 //! assert_relative_eq!(stats.correlation(), 0.006042487913362581, epsilon = f64::EPSILON);
 //! assert_relative_eq!(stats.slant(), 0.0035283020889418774, epsilon = f64::EPSILON);
 //! ```
-use control::ControlStatistics;
-use green::GreenStatistics;
+pub use control::ControlStatistics;
+pub use green::GreenStatistics;
 use kurbo::{Point, Vec2};
 mod control;
 mod green;
