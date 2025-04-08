@@ -1,3 +1,5 @@
+use std::ops::Add;
+
 use kurbo::{PathEl, Point, Vec2};
 
 use crate::{ComputeGreenStatistics, CurveStatistics};
@@ -10,6 +12,21 @@ pub struct GreenStatistics {
     pub moment_xy: f64,
     pub moment_yy: f64,
     area: f64,
+}
+
+impl Add<Self> for GreenStatistics {
+    type Output = Self;
+
+    fn add(self, rhs: Self) -> Self::Output {
+        Self {
+            moment_x: self.moment_x + rhs.moment_x,
+            moment_y: self.moment_y + rhs.moment_y,
+            moment_xx: self.moment_xx + rhs.moment_xx,
+            moment_xy: self.moment_xy + rhs.moment_xy,
+            moment_yy: self.moment_yy + rhs.moment_yy,
+            area: self.area + rhs.area,
+        }
+    }
 }
 
 impl CurveStatistics for GreenStatistics {

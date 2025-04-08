@@ -1,11 +1,24 @@
+use std::ops::Add;
+
 use crate::{ComputeControlStatistics, CurveStatistics};
 use itertools::Itertools;
 use kurbo::{PathEl, Point, Vec2};
 
-#[derive(Default)]
+#[derive(Debug, Default, Clone)]
 pub struct ControlStatistics {
     points: Vec<Point>,
     total: Point, // A cache
+}
+
+impl Add<Self> for ControlStatistics {
+    type Output = Self;
+
+    fn add(self, rhs: Self) -> Self::Output {
+        let mut points = self.points;
+        points.extend(rhs.points);
+        let total = self.total + rhs.total.to_vec2();
+        ControlStatistics { points, total }
+    }
 }
 
 impl CurveStatistics for ControlStatistics {
